@@ -111,7 +111,10 @@ void MyString::MyDelChr(char c)
 			count++;
 		}
 	}
-	if (count == 0) return;
+	if (count == 0)
+	{
+		return;
+	}
 	int new_length = length - count;
 	char* new_str = new char[new_length + 1];
 	int j = 0;
@@ -166,7 +169,10 @@ MyString MyString::operator- (const char ch)
 			count++;
 		}
 	}
-	if (count == 0) return 0;
+	if (count == 0)
+	{
+		return 0;
+	}
 	int new_length = length - count;
 	char* new_str = new char[new_length + 1];
 	int j = 0;
