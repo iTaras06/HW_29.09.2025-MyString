@@ -181,28 +181,10 @@ MyString MyString::operator- (const char ch)
 	return new_str;
 }
 
-
-
-//MyString& MyString::operator++() // ++a
-//{
-//	char* new_str = new char[length + 2]; // +1 для символа, +1 для '\0'
-//	strcpy_s(new_str, length + 1, str);
-//	new_str[length] = '!';   // добавляем символ
-//	new_str[length + 1] = '\0';
-//
-//	delete[] str;
-//	str = new_str;
-//	length++;
-//	return *this;
-//}
-
-
-MyString MyString::operator++(int) // a++
+MyString MyString::operator++(int)
 {
-	// добавляется пробел ' ' в конец строки
-
 	MyString temp(*this);
-	char* new_str = new char[length + 2]; // +1 для пробела, +1 для '\0'
+	char* new_str = new char[length + 2];
 	strcpy_s(new_str, length + 1, str);
 	new_str[length] = ' ';
 	new_str[length + 1] = '\0';
@@ -211,33 +193,16 @@ MyString MyString::operator++(int) // a++
 	str = new_str;
 	length++;
 
-	return temp; // вернуть старое значение
+	return temp;
 }
 
-
-
-//MyString& MyString::operator-- () // --a
-//{
-//		
-//		str[length - 1] = '\0'; // обрезаем последний символ
-//		length--;
-//		
-//	return *this;
-//}
-
-
-MyString MyString::operator--(int) // a--
+MyString MyString::operator--(int)
 {
-	// удаляется последний символ в строке
-
-	MyString temp(*this); // сохранить копию
-
+	MyString temp(*this);
 	str[length - 1] = '\0';
 	length--;
-
-	return temp; // вернуть старое значение
+	return temp;
 }
-
 
 MyString& MyString::operator+=(const char* s)
 {
@@ -258,8 +223,8 @@ MyString& MyString::operator+=(const MyString& obj)
 	int new_length = length + obj.length;
 	char* new_str = new char[new_length + 1];
 
-	strcpy_s(new_str, length + 1, str);              // копируем текущую строку
-	strcat_s(new_str, new_length + 1, obj.str);    // добавляем строку из объекта
+	strcpy_s(new_str, length + 1, str);
+	strcat_s(new_str, new_length + 1, obj.str);
 
 	delete[] str;
 	str = new_str;
@@ -271,11 +236,7 @@ MyString& MyString::operator+=(const MyString& obj)
 
 MyString& MyString::operator-=(const char* s)
 {
-	// удалить из строки подстроку
-
 	int s_len = strlen(s);
-	//if (s_len == 0) return *this;
-
 	char* pstr;
 	while ((pstr = strstr(str, s)) != nullptr)
 	{
@@ -322,7 +283,6 @@ MyString& MyString::operator=(const MyString& obj)
 	cout << "Copy =\n";
 	return *this;
 }
-
 
 MyString& MyString::operator=(MyString&& obj)
 {
