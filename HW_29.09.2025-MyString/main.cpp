@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
 int main()
 {
 	MyString obj1("Hello world");
@@ -68,24 +67,24 @@ int main()
 	MyString a("Hello");
 	MyString b("world");
 
-	a++; // добавит пробел
+	a++;
 	a.Print();
 
-	a--; // удалит последний символ
+	a--;
 	a.Print();
 
-	a += " world"; // конкатенация со строкой (char*)
+	a += " world";
 	a.Print();
 
-	a += b; // конкатенация с объектом
+	a += b;
 	a.Print();
 
 
-	a -= "lo"; // удалить "lo"
+	a -= "lo";
 	a.Print();
 
-	cout << (a == b) << endl; // вернуть true если строки равны
-	cout << (a > b) << endl; // вернуть true если строка а больше строки b
+	cout << (a == b) << endl;
+	cout << (a > b) << endl;
 
 
 	MyString a1("Hello");
